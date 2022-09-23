@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        :root{
+  --btn-color: rgb(136, 136, 227);
+  --btn-color-hover: rgb(51, 51, 228);
+  --background-color: antiquewhite;
+}
+
+body{
+  max-width: 400px;
+  background-color: var(--background-color);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+}
+.select-payload-field {
+  padding: 10px 0 0 5px;
+}
+
+.select-payload-field label, .select-payload-field input {
+  display: inline-block;
+  text-align: left;
+}
+
+.btn{
+  margin: 15px 0 0 5px;
+  font-size: 15px;
+  background-color: var(--btn-color);
+  border: 3px solid var(--btn-color);
+  border-radius: 5px;
+}
+
+.select-payload-field label:hover, .select-payload-field input:hover{
+  cursor: pointer;
+  color: var(--btn-color-hover)
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: var(--btn-color-hover);
+  border: 3px solid var(--btn-color-hover);
+  color: white;
+  font-weight: bold;
+}
+    </style>
+
+<head>
+    <title>Test JB App</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../public/stylesheets/style.css"> -->
+</head>
+
+<body>
+    <header>
+        <h3>JB Test APP</h3>
+    </header>
+    <div>
+        <h4>Select attributes that you want to include in payload:</h4>
+        <form>
+            <div class="select-payload-field"><input id='subscriber-key' name='select-payload-fields' type="checkbox">
+                <label for="subscriber-key">Subscriber Key</label>
+            </div>
+            <div class="select-payload-field"><input id='first-name' name='select-payload-fields' type="checkbox">
+                <label for="first-name">First Name</label>
+            </div>
+            <div class="select-payload-field"> <input id='last-name' name='select-payload-fields' type="checkbox">
+                <label for="last-name">Last Name</label>
+            </div>
+            <div class="select-payload-field"> <input id='birth-date' name='select-payload-fields' type="checkbox">
+                <label for="birth-date">Date of Birth</label>
+            </div>
+            <div class="select-payload-field"><input id='state' name='select-payload-fields' type="checkbox">
+                <label for="state">State</label>
+            </div>
+            <div class="select-payload-field"><input id='all' name='select-payload-fields' type="checkbox">
+                <label for="all">All above</label>
+            </div>
+        </form>
+    </div>
+    <div>
+        <button id="submint-btn" class="btn">SUBMIT</button>
+    </div>
+</body>
+<script src="./app.js"></script>
+
+</html>

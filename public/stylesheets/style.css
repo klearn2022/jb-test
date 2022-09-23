@@ -1,0 +1,41 @@
+:root{
+  --btn-color: rgb(136, 136, 227);
+  --btn-color-hover: rgb(51, 51, 228);
+  --background-color: antiquewhite;
+}
+
+body{
+  max-width: 400px;
+  background-color: var(--background-color);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 16px;
+}
+.select-payload-field {
+  padding: 10px 0 0 5px;
+}
+
+.select-payload-field label, .select-payload-field input {
+  display: inline-block;
+  text-align: left;
+}
+
+.btn{
+  margin: 15px 0 0 5px;
+  font-size: 15px;
+  background-color: var(--btn-color);
+  border: 3px solid var(--btn-color);
+  border-radius: 5px;
+}
+
+.select-payload-field label:hover, .select-payload-field input:hover{
+  cursor: pointer;
+  color: var(--btn-color-hover)
+}
+
+.btn:hover{
+  cursor: pointer;
+  background-color: var(--btn-color-hover);
+  border: 3px solid var(--btn-color-hover);
+  color: white;
+  font-weight: bold;
+}
