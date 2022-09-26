@@ -8,6 +8,18 @@
 <body>
     <script src="/js/jquery.min.js" type="text/javascript"></script>
     <script src='/js/script.js'></script>
+    <script type="text/javascript" src="/js/require.js"></script>
+    <script type="text/javascript">
+      (function () {
+        var config = {
+          baseUrl: "js",
+        };
+
+        var dependencies = ["customActivity"];
+
+        require(config, dependencies);
+      })();
+    </script>
     <header>
         <h3>JB Test APP</h3>
     </header>
