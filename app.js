@@ -13,14 +13,15 @@ app.use(express.static('node_modules'));
 app.use('/jquery', express.static(__dirname + 'node_modules/jquery'));
 
 // Set Views
-app.set('views', './views');
-app.set('view engine', 'ejs');
+app.use(express.static('views'));
+
+//app.set('view engine', 'ejs');
 
 // This fun will create middlewre in nodejs app
 app.use(express.urlencoded());
 
 app.get('/', (req,res)=>{
-  res.sendFile(__dirname  + '/views/index.html');
+  res.sendFile(__dirname  + 'public/index.html');
 })
 
 // Post
