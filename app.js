@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded());
 
 app.get('/', (req,res)=>{
-  res.render('index');
+  res.sendFile(__dirname  + '/views/index.html');
 })
 
 // Post
