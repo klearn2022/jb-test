@@ -27,27 +27,27 @@
 			"format": "json",
 			"useJwt": true,
 			"timeout": 10000,
-			"url": "https://kja-jb-test.herokuapp.com/"
+			"url": "https://kja-jb-test.herokuapp.com//journeybuilder/execute"
 		}
 	},
 	"configurationArguments": {
 		"save": {
-			"url": "https://kja-jb-test.herokuapp.com/save",
+			"url": "https://kja-jb-test.herokuapp.com/journeybuilder/save",
 			"verb": "POST",
 			"useJwt": true
 		},
 		"publish": {
-			"url": "https://kja-jb-test.herokuapp.com/publish",
+			"url": "https://kja-jb-test.herokuapp.com/journeybuilder/publish",
 			"verb": "POST",
 			"useJwt": true
 		},
 		"validate": {
-			"url": "https://kja-jb-test.herokuapp.com/validate",
+			"url": "https://kja-jb-test.herokuapp.com/journeybuilder/validate",
 			"verb": "POST",
 			"useJwt": true
 		},
 		"stop": {
-			"url": "https://kja-jb-test.herokuapp.com/stop",
+			"url": "https://kja-jb-test.herokuapp.com/journeybuilder/stop",
 			"verb": "POST",
 			"useJwt": true
 		}
