@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 // This fun will create middlewre in nodejs app
 app.use(express.urlencoded());
 
-app.get('', (req,res)=>{
+app.get('/', (req,res)=>{
   res.render('index');
 })
 

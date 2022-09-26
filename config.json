@@ -32,16 +32,24 @@
 	},
 	"configurationArguments": {
 		"save": {
-			"url": "https://kja-jb-test.herokuapp.com/save"
+			"url": "https://kja-jb-test.herokuapp.com/save",
+			"verb": "POST",
+			"useJwt": true
 		},
 		"publish": {
-			"url": "https://kja-jb-test.herokuapp.com/publish"
+			"url": "https://kja-jb-test.herokuapp.com/publish",
+			"verb": "POST",
+			"useJwt": true
 		},
 		"validate": {
-			"url": "https://kja-jb-test.herokuapp.com/validate"
+			"url": "https://kja-jb-test.herokuapp.com/validate",
+			"verb": "POST",
+			"useJwt": true
 		},
 		"stop": {
-			"url": "https://kja-jb-test.herokuapp.com/stop"
+			"url": "https://kja-jb-test.herokuapp.com/stop",
+			"verb": "POST",
+			"useJwt": true
 		}
 	},
 	"wizardSteps": [
