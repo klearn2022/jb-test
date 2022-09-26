@@ -1,41 +1,35 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const express = require('express');
+const app = express();
+const port = 3000;
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+// Static files
 
-var app = express();
+app.use(express.static('public'));
+app.use('/css', express.static(__dirname + 'public/css'));
+app.use('/img', express.static(__dirname + 'public/img'));
+app.use('/js', express.static(__dirname + 'public/js'));
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('node_modules'));
+app.use('/jquery', express.static(__dirname + 'node_modules/jquery'));
+
+// Set Views
+app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+// This fun will create middlewre in nodejs app
+app.use(express.urlencoded());
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.get('', (req,res)=>{
+  res.render('index');
+})
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+// Post
+app.post('/', function(req, res){
+  console.log(req.body);
+  res.send(req.body);
+})
 
-// error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  //res.render('error');
-});
+// Listen
+app.listen(port ,() => console.info(`Listening on port ${port}`));
 
 module.exports = app;
