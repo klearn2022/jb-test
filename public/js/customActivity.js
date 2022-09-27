@@ -93,6 +93,8 @@ define(["postmonger"], function (Postmonger) {
   
     function save() {
       
+      let testInputValue = $("#all").val();
+      
       console.log("payload in save fun: ");
       console.log(payload);
 
@@ -127,7 +129,7 @@ define(["postmonger"], function (Postmonger) {
 
   function updateInArguments(){
 
-    const testInputValue = $("#all").val();
+    let testInputValue = $("#all").val();
       console.log("testInputValue: " + testInputValue)
 
     let newInArgs = [];
