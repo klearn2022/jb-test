@@ -3,7 +3,7 @@ define(["postmonger"], function (Postmonger) {
   
     var connection = new Postmonger.Session();
     var authTokens = {};
-    var payload = {};
+    let payload = null;
     $(window).ready(onRender);
   
     connection.on("initActivity", initialize);
@@ -46,7 +46,7 @@ define(["postmonger"], function (Postmonger) {
 
   
     function initialize(data) {
-      console.log(data);
+      console.log("Initialize Data:" + data);
       if (data) {
         payload = data;
       }
