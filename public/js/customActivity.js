@@ -135,7 +135,7 @@ define(["postmonger"], function (Postmonger) {
       let newInArgs = [];
         newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
   
-        if(testInputValue === true){
+        if(testInputValue === 'all'){
   
         $('checkbox').not('#all').each(function(i,el){
           
