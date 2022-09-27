@@ -24,30 +24,6 @@ app.get('/', (req,res)=>{
   res.sendFile(__dirname  + 'public/index.html');
 })
 
-// Called when a journey is saving the activity
-app.post("/journeybuilder/save", function (req, res) {
-  console.log("debug: /journeybuilder/save");
-  return res.status(200).json({ success: true });
-});
-
-// Called when a Journey has been published
-app.post("/journeybuilder/publish", function (req, res) {
-  console.log("debug: /journeybuilder/publish");
-  return res.status(200).json({ success: true });
-});
-
-//Called when Journey Builder wants you to validate the configuration
-app.post("/journeybuilder/validate", function (req, res) {
-  console.log("debug: /journeybuilder/validate");
-  return res.status(200).json({ success: true });
-});
-
-//Called when a Journey is stopped
-app.post("/journeybuilder/stop", function (req, res) {
-  console.log("debug: /journeybuilder/stop");
-  return res.status(200).json({ success: true });
-});
-
 // Post
 app.post('/', function(req, res){
   console.log(req.body);

@@ -119,10 +119,11 @@ define(["postmonger"], function (Postmonger) {
       }
 
       let funRes = updateInArguments();
-      console.log("fuRes: ")
-      funRes.each((i,el)=>{
-        console.log(el);
-      })
+      console.log("fuRes: ");
+
+      for(let i=0;i<funRes.length; i++){
+        console.log(funRes[i]);
+      }
 
 
     }
