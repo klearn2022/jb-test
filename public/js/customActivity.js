@@ -46,7 +46,9 @@ define(["postmonger"], function (Postmonger) {
 
   
     function initialize(data) {
-      console.log("Initialize Data:" + data);
+      console.log("Initialize Data:");
+      console.log(data);
+
       if (data) {
         payload = data;
       }
@@ -62,7 +64,8 @@ define(["postmonger"], function (Postmonger) {
         ? payload["arguments"].execute.inArguments
         : {};
   
-      console.log("inArguments: " + inArguments);
+      console.log("inArguments: ");
+      console.log(inArguments);
   
       // $.each(inArguments, function (index, inArgument) {
       //   $.each(inArgument, function (key, val) {});
@@ -76,22 +79,31 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function onGetTokens(tokens) {
-      console.log("Tokens: " + tokens);
+      console.log("Tokens: ");
+      console.log(tokens);
+
       authTokens = tokens;
     }
   
     function onGetEndpoints(endpoints) {
-      console.log("endpoints: " + endpoints);
+      console.log("endpoints: ");
+      console.log(endpoints);
+
     }
   
     function save() {
-      console.log("payload in save fun: " + payload);
+      const testInputValue = $("#all").val();
+      console.log("testInputValue: " + testInputValue)
+      console.log("payload in save fun: ");
+      console.log(payload);
+
 
      payload["arguments"].execute.inArguments = updateInArguments();
   
       payload["metaData"].isConfigured = true;
   
-      console.log("Payload: " +payload);
+      console.log("payload in save fun: ");
+      console.log(payload);
       connection.trigger("updateActivity", payload);
     }
   });
