@@ -43,6 +43,7 @@ define(["postmonger"], function (Postmonger) {
       console.log("*** requestedTriggerEventDefinition ***");
       console.log(eventDefinitionModel);
     }
+
   
     function initialize(data) {
       console.log(data);
@@ -67,11 +68,11 @@ define(["postmonger"], function (Postmonger) {
         $.each(inArgument, function (key, val) {});
       });
   
-      connection.trigger("updateButton", {
-        button: "next",
-        text: "done",
-        visible: true,
-      });
+      // connection.trigger("updateButton", {
+      //   button: "next",
+      //   text: "done",
+      //   visible: true,
+      // });
     }
   
     function onGetTokens(tokens) {
@@ -84,13 +85,8 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function save() {
-      var testInputValue = $("#test-input").val();
-  
-      payload["arguments"].execute.inArguments = [
-        {
-          tokens: authTokens,
-        },
-      ];
+
+     payload["arguments"].execute.inArguments = upadteInArguments();
   
       payload["metaData"].isConfigured = true;
   
@@ -99,3 +95,35 @@ define(["postmonger"], function (Postmonger) {
     }
   });
   
+
+  function upadteInArguments(){
+
+    const testInputValue = $("#all").val();
+
+    let newInArgs = [];
+      newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
+
+      if(testInputValue === true){
+
+      $('checkbox').not('#all').each(function(i,el){
+
+        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
+
+      });
+        return newInArgs;
+
+      }else{
+
+      $('checkbox').checked().not('#all').each(function(i,el){
+
+        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
+
+      });
+
+        return newInArgs;
+
+      }
+
+
+
+  }
