@@ -112,7 +112,9 @@ define(["postmonger"], function (Postmonger) {
       
       connection.trigger("updateActivity", payload);
       console.log('Final payload["arguments"].execute.inArguments in save fun: ');
-      console.log(payload["arguments"].execute.inArguments);
+      console.log(payload["arguments"].execute.inArguments[0]);
+      console.log(payload["arguments"].execute.inArguments[1]);
+
     }
   });
   
