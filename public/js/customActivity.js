@@ -98,11 +98,18 @@ define(["postmonger"], function (Postmonger) {
       console.log(payload);
 
 
-     payload["arguments"].execute.inArguments = updateInArguments();
+      payload["arguments"].execute.inArguments = [
+        {
+          emailAddress: payload["arguments"].execute.inArguments[0].emailAddress
+        },
+        {
+          test: testInputValue
+        }
+      ];
   
       payload["metaData"].isConfigured = true;
   
-      console.log("payload in save fun: ");
+      console.log("Final payload in save fun: ");
       console.log(payload);
       connection.trigger("updateActivity", payload);
     }
