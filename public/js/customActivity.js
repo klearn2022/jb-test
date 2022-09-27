@@ -94,7 +94,7 @@ define(["postmonger"], function (Postmonger) {
     function save() {
       
       let testInputValue = $("#all").val();
-      
+
       console.log("payload in save fun: ");
       console.log(payload);
 
@@ -118,10 +118,35 @@ define(["postmonger"], function (Postmonger) {
         console.log(payload["arguments"].execute.inArguments[i]);
       }
 
-      let funRes = updateInArguments();
+      //let funRes = updateInArguments();
 
-      console.log("Funres: " + funRes);
+    //body of function
 
+    let newInArgs = [];
+      newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
+
+      if(testInputValue === true){
+
+      $('checkbox').not('#all').each(function(i,el){
+        
+        console.log("Element: " + el);
+
+        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
+
+      });
+
+      }else{
+
+      $('checkbox').checked().not('#all').each(function(i,el){
+
+        console.log("Element: " + el);
+        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
+
+      });
+
+      }
+
+      console.log("newInArgs: " + newInArgs);
 
     }
   });
