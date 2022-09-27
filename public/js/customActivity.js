@@ -92,29 +92,31 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function save() {
-      const testInputValue = $("#all").val();
-      console.log("testInputValue: " + testInputValue)
+      
       console.log("payload in save fun: ");
       console.log(payload);
 
 
-      payload["arguments"].execute.inArguments = [
-        {
-          emailAddress: payload["arguments"].execute.inArguments[0].emailAddress
-        },
-        {
-          test: testInputValue
-        }
-      ];
+      payload["arguments"].execute.inArguments = updateInArguments();
+      
+      // [
+      //   {
+      //     emailAddress: payload["arguments"].execute.inArguments[0].emailAddress
+      //   },
+      //   {
+      //     test: testInputValue
+      //   }
+      // ];
   
       payload["metaData"].isConfigured = true;
   
       
       connection.trigger("updateActivity", payload);
       console.log('Final payload["arguments"].execute.inArguments in save fun: ');
-      console.log(payload["arguments"].execute.inArguments[0]);
-      console.log(payload["arguments"].execute.inArguments[1]);
 
+      for(let i=0;i<payload["arguments"].execute.inArguments.length; i++){
+        console.log(payload["arguments"].execute.inArguments[i]);
+      }
     }
   });
   
@@ -122,6 +124,7 @@ define(["postmonger"], function (Postmonger) {
   function updateInArguments(){
 
     const testInputValue = $("#all").val();
+      console.log("testInputValue: " + testInputValue)
 
     let newInArgs = [];
       newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
