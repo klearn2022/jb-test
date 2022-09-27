@@ -109,9 +109,10 @@ define(["postmonger"], function (Postmonger) {
   
       payload["metaData"].isConfigured = true;
   
-      console.log("Final payload in save fun: ");
-      console.log(payload);
+      
       connection.trigger("updateActivity", payload);
+      console.log('Final payload["arguments"].execute.inArguments in save fun: ');
+      console.log(payload["arguments"].execute.inArguments);
     }
   });
   
