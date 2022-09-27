@@ -118,72 +118,51 @@ define(["postmonger"], function (Postmonger) {
         console.log(payload["arguments"].execute.inArguments[i]);
       }
 
-      //let funRes = updateInArguments();
+      let funRes = updateInArguments();
+      console.log("fuRes: ")
+      funRes.each((i,el)=>{
+        console.log(el);
+      })
 
-    //body of function
 
-    let newInArgs = [];
-      newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
+    }
 
-      if(testInputValue === 'all'){
+    function updateInArguments(){
 
-      $('checkbox').not('#all').each(function(i,el){
-        
-        console.log("Element: " + el);
-
-        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
-
-      });
-
-      }else{
-
-      $('checkbox').checked().not('#all').each(function(i,el){
-
-        console.log("Element: " + el);
-        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
-
-      });
-
-      }
-
-      console.log("newInArgs: " + newInArgs);
-
+      let testInputValue = $("#all").val();
+        console.log("testInputValue: " + testInputValue)
+  
+      let newInArgs = [];
+        newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
+  
+        if(testInputValue === true){
+  
+        $('checkbox').not('#all').each(function(i,el){
+          
+          console.log("Element: " + el);
+  
+          newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
+  
+        });
+          return newInArgs;
+  
+        }else{
+  
+        $('checkbox').checked().not('#all').each(function(i,el){
+  
+          console.log("Element: " + el);
+          newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
+  
+        });
+  
+          return newInArgs;
+  
+        }
+  
+  
+  
     }
   });
   
 
-  function updateInArguments(){
-
-    let testInputValue = $("#all").val();
-      console.log("testInputValue: " + testInputValue)
-
-    let newInArgs = [];
-      newInArgs.push({emailAddress: payload["arguments"].execute.inArguments[0].emailAddress});
-
-      if(testInputValue === true){
-
-      $('checkbox').not('#all').each(function(i,el){
-        
-        console.log("Element: " + el);
-
-        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
-
-      });
-        return newInArgs;
-
-      }else{
-
-      $('checkbox').checked().not('#all').each(function(i,el){
-
-        console.log("Element: " + el);
-        newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
-
-      });
-
-        return newInArgs;
-
-      }
-
-
-
-  }
+  
