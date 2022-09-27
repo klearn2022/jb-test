@@ -3,7 +3,7 @@ define(["postmonger"], function (Postmonger) {
   
     var connection = new Postmonger.Session();
     var authTokens = {};
-    let payload = null;
+    var payload = null;
     $(window).ready(onRender);
   
     connection.on("initActivity", initialize);
@@ -62,11 +62,11 @@ define(["postmonger"], function (Postmonger) {
         ? payload["arguments"].execute.inArguments
         : {};
   
-      console.log(inArguments);
+      console.log("inArguments: " + inArguments);
   
-      $.each(inArguments, function (index, inArgument) {
-        $.each(inArgument, function (key, val) {});
-      });
+      // $.each(inArguments, function (index, inArgument) {
+      //   $.each(inArgument, function (key, val) {});
+      // });
   
       // connection.trigger("updateButton", {
       //   button: "next",
@@ -76,27 +76,28 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function onGetTokens(tokens) {
-      console.log(tokens);
+      console.log("Tokens: " + tokens);
       authTokens = tokens;
     }
   
     function onGetEndpoints(endpoints) {
-      console.log(endpoints);
+      console.log("endpoints: " + endpoints);
     }
   
     function save() {
+      console.log("payload in save fun: " + payload);
 
-     payload["arguments"].execute.inArguments = upadteInArguments();
+     payload["arguments"].execute.inArguments = updateInArguments();
   
       payload["metaData"].isConfigured = true;
   
-      console.log(payload);
+      console.log("Payload: " +payload);
       connection.trigger("updateActivity", payload);
     }
   });
   
 
-  function upadteInArguments(){
+  function updateInArguments(){
 
     const testInputValue = $("#all").val();
 
@@ -106,6 +107,8 @@ define(["postmonger"], function (Postmonger) {
       if(testInputValue === true){
 
       $('checkbox').not('#all').each(function(i,el){
+        
+        console.log("Element: " + el);
 
         newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
 
@@ -116,6 +119,7 @@ define(["postmonger"], function (Postmonger) {
 
       $('checkbox').checked().not('#all').each(function(i,el){
 
+        console.log("Element: " + el);
         newInArgs.push(`{$el.val()}: {{Interaction.ActivityCustomerKey.{$el.val()}}}`);
 
       });
