@@ -97,16 +97,14 @@ define(["postmonger"], function (Postmonger) {
       console.log(payload);
 
 
-      payload["arguments"].execute.inArguments = updateInArguments();
-      
-      // [
-      //   {
-      //     emailAddress: payload["arguments"].execute.inArguments[0].emailAddress
-      //   },
-      //   {
-      //     test: testInputValue
-      //   }
-      // ];
+      payload["arguments"].execute.inArguments =  [
+        {
+          emailAddress: payload["arguments"].execute.inArguments[0].emailAddress
+        },
+        {
+          test: testInputValue
+        }
+      ];
   
       payload["metaData"].isConfigured = true;
   
@@ -117,6 +115,12 @@ define(["postmonger"], function (Postmonger) {
       for(let i=0;i<payload["arguments"].execute.inArguments.length; i++){
         console.log(payload["arguments"].execute.inArguments[i]);
       }
+
+      let funRes = updateInArguments();
+
+      console.log("Funres: " + funRes);
+
+
     }
   });
   
